@@ -1,0 +1,106 @@
+﻿<Page x:Class="Polomka.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Polomka"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page2" Background="Wheat">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Имя" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"></Label>
+            <Label Content="Фамилия" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"></Label>
+            <Label Content="Отчество" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"></Label>
+            <Label Content="Дата рождения" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"></Label>
+            <Label Content="Дата регистрации" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"></Label>
+            <Label Content="Email" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="0"></Label>
+            <Label Content="Телефон" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="0"></Label>
+            <Label Content="Пол" HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0"></Label>
+            <TextBox x:Name="Name" Grid.Row="1" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="LastName" Grid.Row="2" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="Patronymic" Grid.Row="3" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="Birthday" Grid.Row="4" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="RegDate" Grid.Row="5" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="Email" Grid.Row="6" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="Phone" Grid.Row="7" Grid.Column="2" Width="100" HorizontalAlignment="Left"></TextBox>
+            
+            <Button Grid.Column="0" x:Name="btnWriteAg" Grid.Row="10" Content="Записать" Click="Button_Click"></Button>
+            <Button Grid.Column="2" x:Name="btnDelAg" Grid.Row="10" Content="Удалить" Click="Button_Click_1"></Button>
+            <ComboBox x:Name="Gender"  Grid.Column="2" Grid.Row="8" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding}" SelectionChanged="Type_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Code}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Сведения о клиенте" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Row="1" x:Name="historyGrid" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="historyGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding SaleDate}" Header="Дата" Width="2*"/>
+                    <DataGridTextColumn Binding="{Binding ProductCount}" Header="Количество" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path= Product.Title}" Header="Продукция" Width="2*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Grid.Row="0" Text="Сведения о продажах агента" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="date" Grid.Column="0"></TextBox>
+                <TextBox x:Name="count" Grid.Column="1"></TextBox>
+                <ComboBox x:Name="product" Grid.Column="2" SelectionChanged="product_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="btnWritHi" Content="Добавить" Click="Button_Click_2"></Button>
+                <Button Grid.Column="2" x:Name="btnDelHi" Content="Удалить" Click="Button_Click_3"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Page>

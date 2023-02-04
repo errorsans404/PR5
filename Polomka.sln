@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polomka", "Polomka\Polomka.csproj", "{76FA8A46-9320-4922-9719-C37184053AFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76FA8A46-9320-4922-9719-C37184053AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FA8A46-9320-4922-9719-C37184053AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FA8A46-9320-4922-9719-C37184053AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FA8A46-9320-4922-9719-C37184053AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4991E51A-3BB9-4D2C-A75E-29CACA5F4EF0}
+	EndGlobalSection
+EndGlobal
